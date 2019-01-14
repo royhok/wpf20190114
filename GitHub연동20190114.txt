@@ -1,0 +1,5 @@
+도구-확장 및 업데이트-온라인-GitHub Extension for Visual Studio 설치
+팀-연결 관리
+팀 탐색기-연결-Connect (GitHub 계정으로 연결)
+
+팀 탐색기-홈-변경사항-커밋-푸시-동기화
