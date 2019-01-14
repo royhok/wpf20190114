@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2050
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoutedEventDemo", "RoutedEventDemo\RoutedEventDemo.csproj", "{EEE5142D-19FA-4657-900A-8A1069DECBD5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EEE5142D-19FA-4657-900A-8A1069DECBD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEE5142D-19FA-4657-900A-8A1069DECBD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEE5142D-19FA-4657-900A-8A1069DECBD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEE5142D-19FA-4657-900A-8A1069DECBD5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5CD3A1BF-7DE5-45B4-A43D-6DA3ED56B3CC}
+	EndGlobalSection
+EndGlobal
