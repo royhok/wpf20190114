@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Diagnostics;
 
 namespace CommandExam
 {
@@ -21,7 +22,7 @@ namespace CommandExam
             set
             {
                 _SelectedEmp = value;
-                OnPropertyChanged("SelectedEmp");
+                OnPropertyChanged();
             }
         }
 
@@ -42,12 +43,25 @@ namespace CommandExam
             Emps.Add(new Emp { Ename = "정길동", Job = "Manager" });
             Emps.Add(new Emp { Ename = "박길동", Job = "Salesman" });
             Emps.Add(new Emp { Ename = "성길동", Job = "Clerk" });
-            AddEmpCommand = new RelayCommand(AddEmp);
+
+            AddEmpCommand = new RelayCommand(AddEmp, CanAddEmp);
+
+            SelectedEmp = new Emp();
+        }
+
+        bool CanAddEmp(object param)
+        {
+            if (param == null || param.ToString().Length == 0)
+                return false;
+
+            Debug.WriteLine(DateTime.Now.ToString());
+            return Emps.Count < 6;
         }
 
         public void AddEmp(object param)
         {
-            Emps.Add(new Emp { Ename = param.ToString() });
+            if(param != null)
+                Emps.Add(new Emp { Ename = param.ToString() });
         }
     }
 }

@@ -35,11 +35,10 @@ namespace CommandExam
         //즉 CanExecuteChanged 이벤트가 호출될 때마다 실행
         public bool CanExecute(object param)
         {
-            // 사원이름을 입력하지 않으면 Add 버튼은 비활성화 된다.
-            if (param?.ToString().Length == 0) return false;
-            bool result = this.canExecute == null ? true :
-           this.canExecute.Invoke(param);
-            return result;
+            if (canExecute == null)
+                return true;
+            
+            return this.canExecute.Invoke(param);
         }
         public void Execute(object param)
         {

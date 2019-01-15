@@ -22,6 +22,7 @@ namespace CommandExam
     {
         public MainWindow()
         {
+            this.DataContext = new MainWindowViewModel();
             InitializeComponent();
         }
     }
