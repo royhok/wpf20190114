@@ -1,0 +1,11 @@
+﻿<Window x:Class="DigitalClock.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:DigitalClock" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:src="clr-namespace:DigitalClock" Title="MainWindow" Width="800" Height="450" mc:Ignorable="d">
+    <Window.Resources>
+        <src:ClockTicker1 x:Key="clock" />
+    </Window.Resources>
+    <Window.Content>
+        <Binding Path="DateTime" Source="{StaticResource clock}" />
+    </Window.Content>
+</Window>
