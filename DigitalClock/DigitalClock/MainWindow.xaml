@@ -3,7 +3,8 @@
         xmlns:local="clr-namespace:DigitalClock" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:src="clr-namespace:DigitalClock" Title="MainWindow" Width="800" Height="450" mc:Ignorable="d">
     <Window.Resources>
-        <src:ClockTicker1 x:Key="clock" />
+        <!--<src:ClockTicker1 x:Key="clock" />-->
+        <src:ClockTicker2 x:Key="clock" />
     </Window.Resources>
     <Window.Content>
         <Binding Path="DateTime" Source="{StaticResource clock}" />
