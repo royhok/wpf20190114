@@ -1,0 +1,19 @@
+﻿<Window x:Class="BindingLabelToScroll.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:BindingLabelToScroll" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="Label, ScrollBar 데이터 바인딩" Width="800" Height="450" mc:Ignorable="d">
+    <StackPanel>
+
+        <!--  Source  -->
+        <ScrollBar Name="scrollbar" Margin="24" LargeChange="10" Maximum="100" Orientation="Horizontal" SmallChange="1" />
+
+        <!--  Target  -->
+        <!--<Label HorizontalAlignment="Center" Content="{Binding ElementName=scrollbar, Path=Value}" />-->
+        <!--<Label HorizontalAlignment="Center">
+            <Label.Content>
+                <Binding ElementName="scrollbar" Path="Value" />
+            </Label.Content>
+        </Label>-->
+        <Label Name="label" HorizontalAlignment="Center" />
+    </StackPanel>
+</Window>
