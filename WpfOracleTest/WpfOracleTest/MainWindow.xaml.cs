@@ -96,6 +96,43 @@ namespace WpfOracleTest
 
             lstView.ItemsSource = emps;
          conn.Close();
-         } 
+         }
+
+        /* Linq 쿼리식을 통한 EMP 테이터 추출 */
+        private void Select_Emp3(object sender, RoutedEventArgs e)
+        {
+            OracleDataAdapter adapter = new OracleDataAdapter();
+
+            string sql = "select empno, ename, job from emp ";
+
+            OracleCommand comm = new OracleCommand();
+            if (conn == null) DB_Connect(this, null);
+            comm.Connection = conn;
+        adapter.SelectCommand = comm;
+            comm.CommandText = sql;
+            DataSet ds = new DataSet("emps");
+            adapter.Fill(ds, "emp");
+
+            // Clear the ListView control
+            lstView.Items.Clear();
+
+            List<EmpViewModel> emps = new List<EmpViewModel>();
+            IEnumerable query = from myemp1 in ds.Tables["emp"].AsEnumerable()
+                                where myemp1["job"].Equals("CLERK")
+                                select myemp1;
+
+            foreach (DataRow dr in query)
+            {
+                emps.Add(new EmpViewModel()
+                {
+                    Empno = System.Convert.ToInt32(dr["empno"]),
+                    Ename = dr["ename"].ToString(),
+                    Job = dr["job"].ToString()
+                });
+            }
+
+            lstView.ItemsSource = emps;
+            conn.Close();
+        }
     }
 }
