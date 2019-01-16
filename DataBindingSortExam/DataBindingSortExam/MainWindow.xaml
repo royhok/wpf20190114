@@ -1,0 +1,68 @@
+﻿<Window x:Class="DataBindingSortExam.MainWindow" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:DataBindingSortExam" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        Title="MainWindow" Width="800" Height="450" mc:Ignorable="d">
+    <Window.Resources>
+        <local:Emps x:Key="emps" />
+        <DataTemplate x:Key="template">
+            <Grid Width="400">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="150" />
+                </Grid.ColumnDefinitions>
+                <TextBlock Text="{Binding Path=Empno}" />
+                <TextBlock Grid.Column="1" Text="{Binding Path=Ename}" />
+                <TextBlock Grid.Column="2" Text="{Binding Path=Job}" />
+            </Grid>
+        </DataTemplate>
+    </Window.Resources>
+    <StackPanel Name="rootElement"
+                DataContext="{Binding Source={StaticResource emps}}"
+                DataContextChanged="DCChange">
+        <Grid Width="400">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="100" />
+                <ColumnDefinition Width="150" />
+                <ColumnDefinition Width="150" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition Height="20" />
+                <RowDefinition />
+                <RowDefinition />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.ColumnSpan="3" HorizontalAlignment="Center">
+                사원
+                리스트
+            </TextBlock>
+            <Button Name="BtnEmpno" Grid.Row="1" Grid.Column="0" Click="OnClick" Content="Empno" />
+            <Button Name="BtnEname" Grid.Row="1" Grid.Column="1" Click="OnClick" Content="Ename" />
+            <Button Name="BtnJob" Grid.Row="1" Grid.Column="2" Click="OnClick" Content="Job" />
+            <ListBox Name="empListBox" Grid.Row="2" Grid.ColumnSpan="3" IsSynchronizedWithCurrentItem="True"
+                     ItemTemplate="{StaticResource template}"
+                     ItemsSource="{Binding Source={StaticResource emps}}"
+                     ScrollViewer.HorizontalScrollBarVisibility="Disabled" />
+            <TextBlock Grid.Row="3" Grid.ColumnSpan="3" Foreground="Blue">
+                이전/이후/데이터필터링
+            </TextBlock>
+            <Button Name="Previous" Grid.Row="4" Grid.Column="0" Click="OnMove">
+                Previous
+            </Button>
+            <Button Name="Next" Grid.Row="4" Grid.Column="1" Click="OnMove">
+                Next
+            </Button>
+            <Button Name="Filter" Grid.Row="4" Grid.Column="2" Click="OnFilter">
+                Show only Manager
+            </Button>
+            <TextBlock Name="TblkEmpno" Grid.Row="5" Grid.Column="0"
+                       Text="{Binding Path=Empno}" />
+            <TextBlock Name="TblkEname" Grid.Row="5" Grid.Column="1"
+                       Text="{Binding Path=Ename}" />
+            <TextBlock Name="TblkJob" Grid.Row="5" Grid.Column="2"
+                       Text="{Binding Path=Job}" />
+        </Grid>
+    </StackPanel>
+</Window>
