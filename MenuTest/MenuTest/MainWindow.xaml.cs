@@ -29,5 +29,17 @@ namespace MenuTest
         {
             Environment.Exit(0);
         }
+
+        private void Calendar_SelectedDatesChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var calendar = sender as Calendar;
+
+            if (calendar.SelectedDate.HasValue)
+            {
+                DateTime date = calendar.SelectedDate.Value;
+                this.Title = date.ToShortDateString();
+                MessageBox.Show(date.ToString());
+            }
+        }
     }
 }
