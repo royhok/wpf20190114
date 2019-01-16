@@ -23,6 +23,13 @@ namespace MenuTest
         public MainWindow()
         {
             InitializeComponent();
+
+            List<String> list = new List<string>();
+            list.Add("서울");
+            list.Add("대전");
+            list.Add("춘천");
+            list.Add("제주");
+            toolbar.ItemsSource = list;
         }
 
         private void OnExit(object sender, RoutedEventArgs e)
@@ -40,6 +47,11 @@ namespace MenuTest
                 this.Title = date.ToShortDateString();
                 MessageBox.Show(date.ToString());
             }
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show(((Button)sender).Content.ToString());
         }
     }
 }

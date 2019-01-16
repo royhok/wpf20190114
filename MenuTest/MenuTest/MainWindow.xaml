@@ -14,7 +14,20 @@
         </Menu>
         <TextBox AcceptsReturn="True" DockPanel.Dock="Top" />
 
-        <Calendar Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"
+        <Calendar Margin="10,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" DockPanel.Dock="Top"
                   SelectedDatesChanged="Calendar_SelectedDatesChanged" />
+
+        <ToolBarTray Background="White" DockPanel.Dock="Top">
+            <ToolBar Name="toolbar" Band="1" BandIndex="1">
+                <ToolBar.ItemTemplate>
+                    <DataTemplate>
+                        <Grid>
+                            <Button Margin="2" Click="Button_Click"
+                                    Content="{Binding}" />
+                        </Grid>
+                    </DataTemplate>
+                </ToolBar.ItemTemplate>
+            </ToolBar>
+        </ToolBarTray>
     </DockPanel>
 </Window>
